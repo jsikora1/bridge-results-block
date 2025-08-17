@@ -1,0 +1,69 @@
+.bridge-results-table {
+    margin: 1em 0;
+}
+.tournament-type-note {
+    font-style: italic;
+    color: gray;
+}
+.bridge-skeleton {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    display: inline-block;
+    height: 1em;
+    position: relative;
+    overflow: hidden;
+}
+.bridge-skeleton::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, transparent 0%, #f0f0f0 50%, transparent 100%);
+    animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+.result-category{
+    padding: 2px 7px;
+    display: inline-block;
+    color: white;
+    border-radius: 4px;
+    font-size: x-small;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+th .sort-arrow {
+  font-size: .8em;
+  margin-left: 6px;
+  opacity: .6;
+  color: black;
+}
+th { user-select: none; }
+
+.bridge-results-table[aria-busy="true"] { opacity: .75; transition: opacity .15s ease; }
+.bridge-load-more:disabled { opacity: .6; cursor: wait; }
+.is-loading .results-search-box { cursor: wait; }
+
+
+/* keep image column visible regardless of header */
+.bridge-results-table th.col-image,
+.bridge-results-table td.col-image {
+  width: 52px;              /* or whatever you want */
+  text-align: center;
+  white-space: nowrap;
+  display: table-cell;      /* guard against any accidental display:none via nth-child rules */
+  vertical-align: middle;
+}
+
+/* optional: make the whole table slightly dim while loading */
+.bridge-results-table[aria-busy="true"] { opacity: .75; transition: opacity .15s ease; }
